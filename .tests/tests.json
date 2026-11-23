@@ -1,0 +1,183 @@
+{
+  "title": "Lab 11 - Raising Errors",
+  "cases": [
+    {
+      "type": "header",
+      "name": "Header is filled in"
+    },
+    {
+      "type": "comments",
+      "name": "Code is commented throughout",
+      "min": 8
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Challenge - Age Check",
+      "file": "challenges/age_check.py",
+      "function": "check_age",
+      "cases": [
+        {
+          "type": "function",
+          "name": "Child",
+          "function": "check_age",
+          "args": [
+            8
+          ],
+          "expect": "Child"
+        },
+        {
+          "type": "function",
+          "name": "Last teen year",
+          "function": "check_age",
+          "args": [
+            19
+          ],
+          "expect": "Teen"
+        },
+        {
+          "type": "function",
+          "name": "Adult",
+          "function": "check_age",
+          "args": [
+            45
+          ],
+          "expect": "Adult"
+        },
+        {
+          "type": "function",
+          "name": "Valid age through describe_age",
+          "function": "describe_age",
+          "args": [
+            13
+          ],
+          "expect": "Teen"
+        },
+        {
+          "type": "function",
+          "name": "Too old",
+          "function": "describe_age",
+          "args": [
+            131
+          ],
+          "expect": "ValueError: Age must be between 0 and 130."
+        },
+        {
+          "type": "function",
+          "name": "Decimal age",
+          "function": "describe_age",
+          "args": [
+            16.5
+          ],
+          "expect": "TypeError: Age must be a whole number."
+        },
+        {
+          "type": "function",
+          "name": "Age as text",
+          "function": "describe_age",
+          "args": [
+            "12"
+          ],
+          "expect": "TypeError: Age must be a whole number."
+        },
+        {
+          "type": "uses",
+          "name": "Raises both errors",
+          "words": [
+            "raise",
+            "isinstance",
+            "TypeError",
+            "ValueError"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Challenge - Time Parser",
+      "file": "challenges/parse_time.py",
+      "function": "parse_time",
+      "cases": [
+        {
+          "type": "function",
+          "name": "Seconds only",
+          "function": "parse_time",
+          "args": [
+            "0:45"
+          ],
+          "expect": 45
+        },
+        {
+          "type": "function",
+          "name": "Minutes and seconds",
+          "function": "parse_time",
+          "args": [
+            "12:05"
+          ],
+          "expect": 725
+        },
+        {
+          "type": "function",
+          "name": "Message for a valid time",
+          "function": "time_message",
+          "args": [
+            "3:00"
+          ],
+          "expect": "3:00 is 180 seconds."
+        },
+        {
+          "type": "function",
+          "name": "Too many seconds",
+          "function": "time_message",
+          "args": [
+            "4:60"
+          ],
+          "expect": "ValueError: Seconds must be less than 60."
+        },
+        {
+          "type": "function",
+          "name": "No colon",
+          "function": "time_message",
+          "args": [
+            "90"
+          ],
+          "expect": "ValueError: Time must look like MM:SS."
+        },
+        {
+          "type": "function",
+          "name": "Two colons",
+          "function": "time_message",
+          "args": [
+            "1:2:3"
+          ],
+          "expect": "ValueError: Time must look like MM:SS."
+        },
+        {
+          "type": "function",
+          "name": "Letters",
+          "function": "time_message",
+          "args": [
+            "a:30"
+          ],
+          "expect": "ValueError: Time must look like MM:SS."
+        },
+        {
+          "type": "function",
+          "name": "Not text",
+          "function": "time_message",
+          "args": [
+            200
+          ],
+          "expect": "TypeError: Time must be text."
+        },
+        {
+          "type": "uses",
+          "name": "Raises errors",
+          "words": [
+            "raise",
+            "isinstance"
+          ]
+        }
+      ]
+    }
+  ]
+}
