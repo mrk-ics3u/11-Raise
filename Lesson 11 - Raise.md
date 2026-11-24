@@ -17,7 +17,7 @@ that string doesn't hold a number.
 There are many more types of errors, but these are the ones we mostly see in
 this course.
 
-The key word used about is **raise** - when these functions/methods are written by programmers, they have to determine what could potentially go wrong and **raise** the error message that we see.
+The key word used above is **raise** - when these functions/methods are written by programmers, they have to determine what could potentially go wrong and **raise** the error message that we see.
 
 ## isinstance()
 
